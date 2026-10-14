@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support CRM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <h1>Support CRM</h1>
+        <button id="logoutButton" class="ghost">Logout</button>
+    </header>
+
+    <div class="panel-container">
+        <aside class="tickets-panel">
+            <h2>Tickets</h2>
+            <select id="statusFilter">
+                <option value="open">Open</option>
+                <option value="closed">Closed</option>
+                <option value="">All</option>
+            </select>
+            <div id="ticketsList"></div>
+        </aside>
+
+        <section class="chat-panel">
+            <div class="chat-header">
+                <h2 id="chatTitle">Select a ticket</h2>
+                <button id="closeTicketButton" class="ghost hidden">Close ticket</button>
+            </div>
+            <div id="messagesBox"></div>
+            <form id="replyForm" class="hidden">
+                <input type="text" id="replyInput" placeholder="Type your reply..." autocomplete="off">
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="/static/panel.js"></script>
+</body>
+</html>

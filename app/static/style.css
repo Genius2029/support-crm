@@ -1,0 +1,190 @@
+:root {
+    --bg: #0f0f0f;
+    --card: #1a1a1a;
+    --card-light: #242424;
+    --text: #f5f5f5;
+    --text-muted: #9ca3af;
+    --border: #2e2e2e;
+    --accent: #e5e5e5;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 24px 16px;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 { font-weight: 700; letter-spacing: -0.5px; margin: 0 0 24px; }
+
+h2 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 12px;
+}
+
+
+.hidden { display: none !important; }
+
+input, select, button {
+    padding: 11px 13px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--card-light);
+    color: var(--text);
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+input:focus, select:focus { border-color: var(--accent); }
+input::placeholder { color: var(--text-muted); }
+
+button {
+    background: var(--accent);
+    color: #0f0f0f;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+button:hover { background: #ffffff; }
+
+button.ghost {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+}
+button.ghost:hover { color: var(--text); border-color: var(--accent); }
+
+/* Login */
+#loginForm {
+    background: var(--card);
+    padding: 24px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 360px;
+}
+
+/* Panel */
+.topbar {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.topbar h1 { margin: 0; }
+
+.panel-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.tickets-panel, .chat-panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+.tickets-panel { padding: 16px; }
+.tickets-panel select { width: 100%; }
+
+#ticketsList {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 240px;
+    overflow-y: auto;
+}
+
+.ticket-item {
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--card-light);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.ticket-item span { color: var(--text-muted); }
+.ticket-item:hover { border-color: var(--accent); }
+.ticket-item.active { border-color: var(--accent); background: #2f2f2f; }
+
+.chat-panel { display: flex; flex-direction: column; overflow: hidden; }
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+}
+.chat-header h2 { margin: 0; }
+
+#messagesBox {
+    height: 380px;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.message {
+    max-width: 75%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.4;
+    white-space: pre-wrap;       
+    word-break: break-word;  
+}
+.message.client {
+    align-self: flex-start;
+    background: var(--card-light);
+    border: 1px solid var(--border);
+    border-bottom-left-radius: 4px;
+}
+.message.manager {
+    align-self: flex-end;
+    background: var(--accent);
+    color: #0f0f0f;
+    border-bottom-right-radius: 4px;
+}
+
+#replyForm {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+}
+#replyForm input { flex: 1; }
+
+@media (min-width: 768px) {
+    .panel-container { flex-direction: row; align-items: flex-start; }
+    .tickets-panel { flex: 0 0 320px; }
+    #ticketsList { max-height: 520px; }
+    .chat-panel { flex: 1; }
+    #messagesBox { height: 520px; }
+}
