@@ -37,4 +37,4 @@ async def test_login_wrong_password(api, manager_account):
         json={"email": manager_account["email"], "password": "wrong-password"},
     )
 
-    assert response.status_code == 200
+    assert response.status_code == 401
