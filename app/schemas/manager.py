@@ -1,9 +1,10 @@
 from pydantic import BaseModel
+from pydantic import Field
 
 class ManagerCreate(BaseModel):
     email: str
     full_name: str
-    password: str
+    password: str = Field(min_length=8)
 
 class ManagerRead(BaseModel):
     id: int
